@@ -43,4 +43,5 @@ const kittenThree = `<li class="card">
                     </article>
                 </li>`;
                 
-document.querySelector('data').innerHTML=kittenOne += kittenTwo += kittenThree;
+document.querySelector('.data').innerHTML= kittenOne + kittenTwo + kittenThree; /*Aquí, al poner solo 'data' no estaba encontrando la referencia porque data es una clase, para seleccionar clases usamos .data*/
+/*Además, no era usando += ahí me he complicado la vida demasiado (again)*/
