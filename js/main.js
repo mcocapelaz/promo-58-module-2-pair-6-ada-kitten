@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 const kittenOne = `<li class="card">
 <article>
@@ -42,6 +42,10 @@ const kittenThree = `<li class="card">
                     </p>
                     </article>
                 </li>`;
-                
-document.querySelector('.data').innerHTML= kittenOne + kittenTwo + kittenThree; /*Aquí, al poner solo 'data' no estaba encontrando la referencia porque data es una clase, para seleccionar clases usamos .data*/
+
+document.querySelector(".list").innerHTML =
+  kittenOne +
+  kittenTwo +
+  kittenThree; /*Aquí, al poner solo 'data' no estaba encontrando la referencia porque data es una clase, para seleccionar clases usamos .data*/
 /*Además, no era usando += ahí me he complicado la vida demasiado (again)*/
+/* Bien visto, compi. Lo único que nos hacía falta ahora, era descomentar en html la sección '.list' en cuyo css se indica que es un display flex / position row, "llamarla" desde js y listo*/
