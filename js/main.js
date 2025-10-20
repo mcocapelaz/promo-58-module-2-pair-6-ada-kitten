@@ -47,10 +47,24 @@ document.querySelector(".list").innerHTML =
   kittenOne +
   kittenTwo +
   kittenThree; 
+/* Lógica: Vamos a pensar que necesitamos hacer: Que la usuaria cuando pinche en el "boton" de +, se abra un formulario y cuando le de al botón de cancelar, se cierre.
+ ¿Entonces qué elementos de nuestro HTML tenemos que seleccionar? El botón de +, el formulario que queremos que se abra y cierre y el botón de cancelar */
+  const logoImg = document.querySelector(".js-btn-add"); /*Con esto seleccionamos el botón de +. Podríamos haber usado fas, como antes, pero ya que hemos creado especificamente esta clase para seleccionar esta parte, pues la vamos a usar*/
+  const formSection = document.querySelector(".new-form"); /*Con esto seleccionamos el formulario*/
+  const cancelButton = document.querySelector(".button-cancel"); /*Con esto seleccionamos el botón de cancelar*/
 
-  const logImg = document.querySelector(".fas"); 
-  const formSection = document.querySelector(".new-form"); 
-  logImg.addEventListener('click'), (ev) => {formSection} ;
+  /*EVENTOS*/
+
+
+  logoImg.addEventListener("click", (ev) => { /*Lógica en este punto: Ahora usamos las variables que hemos creado ¿Dónde tiene que hacer click la usuaria para que se abra el formulario? En el botón de +. ¿Qué tiene qué hacer? click*/
+    formSection.classList.remove ('collapsed'); /*¿Qué codigo se tiene que ejecutar cuando haga click? Ahora mismo, si te fijas en el CSS, el formulario está oculto gracias a collapsed. Tenemos que conseguir que se quite*/
+  }); /*Utilizamos el formulario que hemos seleccionado arriba gracias a formSection y con classList.remove le estamos quitando el collapsed*/
+
+  cancelButton.addEventListener("click", (ev) => { /*Ahora bien, lo mismo pero para que se nos cierre el formulario, la usuaria tiene que hacer click al botón de cancelar. Utilizamos el botón que hemos seleccionado antes con cancelButton*/ 
+    formSection.classList.add("collapsed"); /*Utilizamos de nuevo el formulario que hemos seleccionado y esta vez, le añadimos la clase collapsed gracias a .classList.add*/
+  });
+
+ 
 
 
   
