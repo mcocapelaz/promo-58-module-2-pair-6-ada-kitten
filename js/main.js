@@ -43,8 +43,8 @@ const kittenThree = `<li class="card">
                     </article>
                 </li>`;
 
-/*document.querySelector(".list").innerHTML = kittenOne + kittenTwo + kittenThree;
-Lógica: Vamos a pensar que necesitamos hacer: Que la usuaria cuando pinche en el "boton" de +, se abra un formulario y cuando le de al botón de cancelar, se cierre.
+document.querySelector(".list").innerHTML = kittenOne + kittenTwo + kittenThree;
+/*Lógica: Vamos a pensar que necesitamos hacer: Que la usuaria cuando pinche en el "boton" de +, se abra un formulario y cuando le de al botón de cancelar, se cierre.
  ¿Entonces qué elementos de nuestro HTML tenemos que seleccionar? El botón de +, el formulario que queremos que se abra y cierre y el botón de cancelar */
 const logoImg =
   document.querySelector(
@@ -58,7 +58,7 @@ const cancelButton =
   ); /*Con esto seleccionamos el botón de cancelar*/
 const form = document.getElementById(".form"); // Creo que he dado con el paso de limpiar los inputs. Primero seleccionamos el formulario cuyos inputs queremos devolver a su estado inicial (vacíos)
 const searchButton = document.querySelector(".js_button-search");
-const searchDescriptionButton = document.querySelector(".js_in_search_desc");
+const inputSearchDesc = document.querySelector(".js_in_search_desc");
 
 const kittenDesc1 =
   "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
@@ -83,21 +83,31 @@ cancelButton.addEventListener("click", (ev) => {
   ); /*Utilizamos de nuevo el formulario que hemos seleccionado y esta vez, le añadimos la clase collapsed gracias a .classList.add*/
 });
 
-/*form.reset(); /*Con esta orden, el formulario vuelve a su estado inicial*/
+
 
 searchButton.addEventListener("click", (ev) => {
   ev.preventDefault();
-  const descrSearchText = searchDescriptionButton.value; // Recoge el valor del input de la descripción en una variable
 
-  if (kittenDesc1.includes(descrSearchText)) {
-    document.querySelector(".list").innerHTML = kittenOne;
+  const descrSearchText = inputSearchDesc.value.toLowerCase();
+  const list = document.querySelector(".list");
+  list.innerHTML = ""; // limpia la lista antes de mostrar los resultados
+
+  if (kittenDesc1.toLowerCase().includes(descrSearchText)) {
+    list.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.toLowerCase().includes(descrSearchText)) {
+    list.innerHTML += kittenTwo;
+  }
+  if (kittenDesc3.toLowerCase().includes(descrSearchText)) {
+    list.innerHTML += kittenThree;
   }
 
-  if (kittenDesc2.includes(descrSearchText)) {
-    document.querySelector(".list").innerHTML = kittenTwo;
-  }
-
-  if (kittenDesc3.includes(descrSearchText)) {
-    document.querySelector(".list").innerHTML = kittenThree;
+  // Si no hay resultados
+  if (list.innerHTML === "") {
+    list.innerHTML = "<li>No se encontraron gatitos 😿</li>";
   }
 });
+
+
+//form.reset(); /*Con esta orden, el formulario vuelve a su estado inicial*/
+
