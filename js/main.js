@@ -1,5 +1,32 @@
 "use strict";
 
+// Declarar raza
+
+const kittenRace1 = "Siamés";
+const kittenRace2 = "Sphynx";
+const kittenRace3 = "";
+
+//Comprobar raza
+
+let breedText1 = "";
+if (kittenRace1 === "") {
+  breedText1 = `Uy, qué despiste, no sabemos su raza`;
+} else {
+  breedText1 = kittenRace1;
+}
+let breedText2 = "";
+if (kittenRace2 === "") {
+  breedText2 = `Uy, qué despiste, no sabemos su raza`;
+} else {
+  breedText2 = kittenRace2;
+}
+let breedText3 = "";
+if (kittenRace3 === "") {
+  breedText3 = `Uy, qué despiste, no sabemos su raza`;
+} else {
+  breedText3 = kittenRace3;
+}
+
 const kittenOne = `<li class="card">
 <article>
   <img
@@ -8,7 +35,7 @@ const kittenOne = `<li class="card">
     alt="gatito"
   />
   <h3 class="card_title">Anastacio</h3>
-  <h4 class="card_race">Siamés</h4>
+  <h4 class="card_race">${breedText1}</h4>
   <p class="card_description">
             Porte elegante, su patrón de color tan característico y sus ojos
             de un azul intenso, pero su historia se remonta a Asía al menos
@@ -21,7 +48,7 @@ const kittenTwo = `<li class="card">
 <article>
                     <img class="card_img" src="https://dev.adalab.es/sphynx-gato.webp" alt="sphynx-cat" />
                     <h3 class="card_title">Fiona</h3>
-                    <h4 class="card_race">Sphynx</h4>
+                    <h4 class="card_race">${breedText2}</h4>
                     <p class="card_description">
                         Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
                         hasta con pinta de alienígena han llegado a definir a esta raza
@@ -34,7 +61,7 @@ const kittenThree = `<li class="card">
 <article>
                     <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
                     <h3 class="card_title">Cielo</h3>
-                    <h4 class="card_race"></h4>
+                    <h4 class="card_race">${breedText3}</h4>
                     <p class="card_description">
                         Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
                         bella mirada se ha convertido en una de sus señas de identidad.
@@ -44,8 +71,10 @@ const kittenThree = `<li class="card">
                 </li>`;
 
 document.querySelector(".list").innerHTML = kittenOne + kittenTwo + kittenThree;
+
 /*Lógica: Vamos a pensar que necesitamos hacer: Que la usuaria cuando pinche en el "boton" de +, se abra un formulario y cuando le de al botón de cancelar, se cierre.
  ¿Entonces qué elementos de nuestro HTML tenemos que seleccionar? El botón de +, el formulario que queremos que se abra y cierre y el botón de cancelar */
+
 const logoImg =
   document.querySelector(
     ".js-btn-add"
@@ -56,6 +85,7 @@ const cancelButton =
   document.querySelector(
     ".button-cancel"
   ); /*Con esto seleccionamos el botón de cancelar*/
+
 const form = document.getElementById(".form"); // Creo que he dado con el paso de limpiar los inputs. Primero seleccionamos el formulario cuyos inputs queremos devolver a su estado inicial (vacíos)
 const searchButton = document.querySelector(".js_button-search");
 const inputSearchDesc = document.querySelector(".js_in_search_desc");
@@ -66,31 +96,6 @@ const kittenDesc2 =
   "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
 const kittenDesc3 =
   "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
-
-  let breedText = "";
-  let kittenRace1 = "Siamés";
-   let kittenRace2 = "Sphynx";
-  let kittenRace3 = "";
-
-  if (kittenRace1 === "") {
-  breedText = `Uy que despiste, no sabemos su raza`;
-} else {
-  breedText = kittenRace1;
-}
-
-if (kittenRace2 === "") {
-  breedText = `Uy que despiste, no sabemos su raza`;
-} else {
-  breedText = kittenRace2;
-}
-
-if (kittenRace3 === "") {
-  breedText = `Uy que despiste, no sabemos su raza`;
-} else {
-  breedText = kittenRace3;
-}
-
-
 
 /*EVENTOS*/
 
@@ -107,8 +112,6 @@ cancelButton.addEventListener("click", (ev) => {
     "collapsed"
   ); /*Utilizamos de nuevo el formulario que hemos seleccionado y esta vez, le añadimos la clase collapsed gracias a .classList.add*/
 });
-
-
 
 searchButton.addEventListener("click", (ev) => {
   ev.preventDefault();
@@ -132,7 +135,3 @@ searchButton.addEventListener("click", (ev) => {
     list.innerHTML = "<li>No se encontraron gatitos 😿</li>";
   }
 });
-
-
-//form.reset(); /*Con esta orden, el formulario vuelve a su estado inicial*/
-
