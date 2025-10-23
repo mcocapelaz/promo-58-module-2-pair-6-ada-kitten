@@ -34,7 +34,7 @@ const kittenThree = `<li class="card">
 <article>
                     <img class="card_img" src="https://dev.adalab.es/maine-coon-cat.webp" alt="maine-coon-cat" />
                     <h3 class="card_title">Cielo</h3>
-                    <h4 class="card_race">Maine Coon</h4>
+                    <h4 class="card_race"></h4>
                     <p class="card_description">
                         Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
                         bella mirada se ha convertido en una de sus señas de identidad.
@@ -66,6 +66,31 @@ const kittenDesc2 =
   "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
 const kittenDesc3 =
   "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
+
+  let breedText = "";
+  let kittenRace1 = "Siamés";
+   let kittenRace2 = "Sphynx";
+  let kittenRace3 = "";
+
+  if (kittenRace1 === "") {
+  breedText = `Uy que despiste, no sabemos su raza`;
+} else {
+  breedText = kittenRace1;
+}
+
+if (kittenRace2 === "") {
+  breedText = `Uy que despiste, no sabemos su raza`;
+} else {
+  breedText = kittenRace2;
+}
+
+if (kittenRace3 === "") {
+  breedText = `Uy que despiste, no sabemos su raza`;
+} else {
+  breedText = kittenRace3;
+}
+
+
 
 /*EVENTOS*/
 
