@@ -135,3 +135,5 @@ searchButton.addEventListener("click", (ev) => {
     list.innerHTML = "<li>No se encontraron gatitos 😿</li>";
   }
 });
+
+
