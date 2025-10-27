@@ -41,7 +41,7 @@ if (kittenRace3 === "") {
   breedText3 = kittenRace3;
 }
 
-const kittenOne = `<li class="card">
+/*const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -76,7 +76,39 @@ const kittenThree = `<li class="card">
                         ${kittenDesc3}
                     </p>
                     </article>
-                </li>`;
+                </li>`;*/
+
+function renderKitten(url, desc, name, race) {
+  return `
+    <li class="card">
+      <article>
+        <img class="card_img" src="${url}" alt="Foto de ${name}" />
+        <h3 class="card_title">${name}</h3>
+        <h4 class="card_race">${race}</h4>
+        <p class="card_description">${desc}</p>
+      </article>
+    </li>
+  `;
+}
+
+const kittenOne = renderKitten(
+  kittenImage1,
+  kittenDesc1,
+  kittenName1,
+  breedText1
+);
+const kittenTwo = renderKitten(
+  kittenImage2,
+  kittenDesc2,
+  kittenName2,
+  breedText2
+);
+const kittenThree = renderKitten(
+  kittenImage3,
+  kittenDesc3,
+  kittenName3,
+  breedText3
+);
 
 document.querySelector(".js-list").innerHTML =
   kittenOne + kittenTwo + kittenThree;
@@ -158,3 +190,26 @@ function handleClickNewCatForm(event) {
 }
 
 //form.reset(); /*Con esta orden, el formulario vuelve a su estado inicial*/
+
+cancelButton.addEventListener("click", handleClickNewCatForm);
+function handleClickNewCatForm(event) {
+  if (formSection.classList.contains("collapsed")) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm();
+  }
+}
+const filterKitten = (event) => {
+  if (kittenDesc1.includes(inputSearchDesc)) {
+    listElement.innerHTML += kittenOne;
+  }
+  if (kittenDesc2.includes(inputSearchDesc)) {
+    listElement.innerHTML += kittenTwo;
+  }
+  if (kittenDesc3.includes(inputSearchDesc)) {
+    listElement.innerHTML += kittenThree;
+  }
+};
+
+const buttonSearch = document.querySelector(".js_button-search");
+buttonSearch.addEventListener("click", filterKitten);
