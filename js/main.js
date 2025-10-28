@@ -41,14 +41,40 @@ if (kittenRace3 === "") {
   breedText3 = kittenRace3;
 }
 
-/*const kittenOne = `<li class="card">
+const kittenData1 = {
+name: `${kittenName1}`,
+breed: `${breedText1}`,
+image: `${kittenImage1}`,
+desc: `${kittenDesc1}`,
+}
+
+const kittenData2 = {
+name: `${kittenName2}`,
+breed: `${breedText2}`,
+image: `${kittenImage2}`,
+desc: `${kittenDesc2}`,
+}
+
+const kittenData3 = {
+name: `${kittenName3}`,
+breed: `${breedText3}`,
+image: `${kittenImage3}`,
+desc: `${kittenDesc3}`,
+}
+const kittenDataList =[
+kittenData1, kittenData2, kittenData3];
+
+console.log(kittenDataList);
+
+
+const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
     src=${kittenImage1}
     alt="Foto de ${kittenName1}"
   />
-  <h3 class="card_title">${kittenName1}</h3>
+  <h3 class="card_title">${kittenDataList[0].name}</h3>
   <h4 class="card_race">${breedText1}</h4>
   <p class="card_description">
             ${kittenDesc1}
@@ -76,9 +102,9 @@ const kittenThree = `<li class="card">
                         ${kittenDesc3}
                     </p>
                     </article>
-                </li>`;*/
+                </li>`;
 
-function renderKitten(url, desc, name, race) {
+/*function renderKitten(url, desc, name, race) {
   return `
     <li class="card">
       <article>
@@ -108,7 +134,7 @@ const kittenThree = renderKitten(
   kittenDesc3,
   kittenName3,
   breedText3
-);
+); */
 
 document.querySelector(".js-list").innerHTML =
   kittenOne + kittenTwo + kittenThree;
