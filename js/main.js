@@ -67,42 +67,42 @@ kittenData1, kittenData2, kittenData3];
 console.log(kittenDataList);
 
 
-const kittenOne = `<li class="card">
+/*const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
-    src=${kittenImage1}
-    alt="Foto de ${kittenName1}"
+    src=${kittenDataList[0].image}
+    alt="Foto de ${kittenDataList[0].name}"
   />
   <h3 class="card_title">${kittenDataList[0].name}</h3>
-  <h4 class="card_race">${breedText1}</h4>
+  <h4 class="card_race">${kittenDataList[0].breed}</h4>
   <p class="card_description">
-            ${kittenDesc1}
+           ${kittenDataList[0].desc}
    </p>
 </article>
 </li>`;
 
 const kittenTwo = `<li class="card">
 <article>
-                    <img class="card_img" src="${kittenImage2}"alt="Foto de ${kittenName2}" />
-                    <h3 class="card_title">${kittenName2}</h3>
-                    <h4 class="card_race">${breedText2}</h4>
+                    <img class="card_img" src="${kittenDataList[1].image}"alt="Foto de ${kittenDataList[1].name}" />
+                    <h3 class="card_title">${kittenDataList[1].name}</h3>
+                    <h4 class="card_race">${kittenDataList[1].breed}</h4>
                     <p class="card_description">
-                        ${kittenDesc2}
+                        ${kittenDataList[1].desc}
                     </p>
                     </article>
                 </li>`;
 
 const kittenThree = `<li class="card">
 <article>
-                    <img class="card_img" src="${kittenImage3}" alt="Foto de ${kittenName1}" />
-                    <h3 class="card_title">${kittenName3}</h3>
-                    <h4 class="card_race">${breedText3}</h4>
+                    <img class="card_img" src="${kittenDataList[2].image}" alt="Foto de ${kittenDataList[2].name}" />
+                    <h3 class="card_title">${kittenDataList[2].name}</h3>
+                    <h4 class="card_race">${kittenDataList[2].breed}</h4>
                     <p class="card_description">
-                        ${kittenDesc3}
+                         ${kittenDataList[2].desc}
                     </p>
                     </article>
-                </li>`;
+                </li>`; */
 
 /*function renderKitten(url, desc, name, race) {
   return `
@@ -239,3 +239,18 @@ const filterKitten = (event) => {
 
 const buttonSearch = document.querySelector(".js_button-search");
 buttonSearch.addEventListener("click", filterKitten);
+
+
+function renderKittenList(kittenDataList) {
+  //Completa el código:
+  //Vaciamos el innerHTML del <ul> de la página.
+  //Iteramos sobre el listado de gatitos
+  //Y por cada iteración pintamos un gatito.
+  //utilizando la función renderKitten(kittenItem)
+
+
+  for (let i = 0; i < kittenDataList.length; i++)  
+kittenDataList[0].innerHTML
+}
+
+ console.log (renderKittenList)
